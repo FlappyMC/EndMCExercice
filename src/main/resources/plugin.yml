@@ -1,0 +1,7 @@
+name: EndMcExercise
+main: fr.flappy.endmc.ExercisePlugin
+version: 1.0
+commands:
+  exercise:
+    description: Start an exercise
+    permission: endmc.exercise
