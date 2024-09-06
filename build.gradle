@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id 'com.github.johnrengelman.shadow' version '7.1.2'
 }
 
 group = 'fr.flappy'
@@ -14,9 +15,14 @@ repositories {
 
 dependencies {
     compileOnly 'org.spigotmc:spigot-api:1.8.8-R0.1-SNAPSHOT'
-    compileOnly 'com.google.inject:guice:5.0.1'
+    implementation 'com.google.inject:guice:4.1.0'
+    implementation 'com.google.guava:guava:30.1-jre'
 }
 
-test {
-    useJUnitPlatform()
+tasks.named('build').configure {
+    dependsOn 'shadowJar'
+}
+
+shadowJar {
+    archiveClassifier.set('')
 }

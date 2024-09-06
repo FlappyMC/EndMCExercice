@@ -7,12 +7,13 @@ import fr.flappy.endmc.guice.ExerciseModule;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class ExercisePlugin extends JavaPlugin {
+    private Injector injector;
 
     @Override
-    public void onEnable(){
-        Injector injector = Guice.createInjector(new ExerciseModule());
-        CommandInitializer commandInitializer = injector.getInstance(CommandInitializer.class);
-        commandInitializer.initializeCommands();
+    public void onEnable() {
+        injector = Guice.createInjector(new ExerciseModule(this));
+        CommandInitializer initializer = injector.getInstance(CommandInitializer.class);
+        initializer.initializeCommands();
     }
 
     @Override

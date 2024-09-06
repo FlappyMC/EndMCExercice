@@ -7,7 +7,11 @@ import fr.flappy.endmc.services.PlayerServices;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class ExerciseModule extends AbstractModule {
-    private JavaPlugin plugin;
+    private final JavaPlugin plugin;
+
+    public ExerciseModule(JavaPlugin plugin){
+        this.plugin = plugin;
+    }
 
     @Override
     protected void configure(){
