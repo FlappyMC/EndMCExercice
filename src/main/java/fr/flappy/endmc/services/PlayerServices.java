@@ -12,6 +12,6 @@ public class PlayerServices {
     }
 
     public String getPlayerInfo(Player player) {
-        return "Player Info: " + databaseService.getPlayerName(player.getUniqueId());
+        return "Player Info: " + databaseService.getPlayerMoney(player.getUniqueId());
     }
 }

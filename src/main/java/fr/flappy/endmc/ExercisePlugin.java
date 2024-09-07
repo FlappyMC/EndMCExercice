@@ -18,6 +18,6 @@ public class ExercisePlugin extends JavaPlugin {
 
     @Override
     public void onDisable(){
-        //TODO: Plugin shutdown logic
+        //TODO: Plugin shutdown logic, like saving players data
     }
 }
