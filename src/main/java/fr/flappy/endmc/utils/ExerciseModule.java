@@ -1,4 +1,4 @@
-package fr.flappy.endmc.guice;
+package fr.flappy.endmc.utils;
 
 import com.google.inject.AbstractModule;
 import com.google.inject.name.Names;
@@ -18,6 +18,6 @@ public class ExerciseModule extends AbstractModule {
     protected void configure() {
         bind(JavaPlugin.class).toInstance(plugin);
         bind(DatabaseDriver.class).to(JsonDatabaseDriver.class);
-        bind(String.class).annotatedWith(Names.named("JsonFilePath")).toInstance("plugins/EndMcExercise/users.json"); //could do one file for each player, but it's not the point of the exercise, I know it's better for large community
+        bind(String.class).annotatedWith(Names.named("JsonFilePath")).toInstance("plugins/EndMcExercise/users.json");
     }
 }
