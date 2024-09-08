@@ -19,4 +19,10 @@ public class DatabaseServices {
         driver.disconnect();
         return data;
     }
+
+    public void givePlayerMoney(UUID playerUUID, int amount){
+        driver.connect();
+        driver.givePlayerMoney(playerUUID, amount);
+        driver.disconnect();
+    }
 }

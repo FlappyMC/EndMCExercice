@@ -14,4 +14,8 @@ public class PlayerServices {
     public String getPlayerInfo(Player player) {
         return "Player Info: " + databaseService.getPlayerMoney(player.getUniqueId());
     }
+
+    public void givePlayerMoney(Player player, int amount){
+        databaseService.givePlayerMoney(player.getUniqueId(), amount);
+    }
 }

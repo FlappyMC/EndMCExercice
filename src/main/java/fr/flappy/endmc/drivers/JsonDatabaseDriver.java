@@ -66,4 +66,21 @@ public class JsonDatabaseDriver implements DatabaseDriver {
             return 0;
         }
     }
+
+    @Override
+    public void givePlayerMoney(UUID playerUUID, int amount) {
+        try {
+            String json = Files.readString(jsonFile.toPath());
+            Gson gson = new Gson();
+            Type type = new TypeToken<HashMap<UUID, Integer>>(){}.getType();
+            Map<UUID, Integer> data = gson.fromJson(json, type);
+            if(data == null || data.isEmpty()){
+                data = new HashMap<>();
+            }
+            data.put(playerUUID, data.getOrDefault(playerUUID, 0) + amount);
+            Files.writeString(jsonFile.toPath(), gson.toJson(data));
+        } catch (IOException e) {
+            System.out.println("§cFAILED TO READ FILE " + e.getMessage());
+        }
+    }
 }

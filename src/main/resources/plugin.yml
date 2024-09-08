@@ -5,3 +5,6 @@ commands:
   player:
     description: Start an exercise
     permission: endmc.exercise
+  givetoplayer:
+    description: Give an exercise to a player
+    permission: endmc.exercise
