@@ -28,6 +28,7 @@ public class GiveToPlayerCommand implements CommandExecutor {
                 playerService.givePlayerMoney(player, amount);
                 return true;
             } catch (NumberFormatException e) {
+                player.sendMessage("Amount must be a number");
                 return false;
             }
         }
