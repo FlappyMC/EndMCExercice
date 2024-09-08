@@ -50,7 +50,7 @@ public class JsonDatabaseDriver implements DatabaseDriver {
 
     @Override
     public void disconnect() {
-        //TODO: save users information's from the cache, not the point of the exercise
+        // If we need to do something when disconnecting, we can do it here, not here
     }
 
     @Override

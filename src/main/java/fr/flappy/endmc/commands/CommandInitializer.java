@@ -1,6 +1,7 @@
 package fr.flappy.endmc.commands;
 
 import com.google.inject.Inject;
+import org.bukkit.command.CommandExecutor;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class CommandInitializer {
@@ -15,8 +16,12 @@ public class CommandInitializer {
         this.giveToPlayerCommand = giveToPlayerCommand;
     }
 
+    private void registerCommand(final String name, final CommandExecutor executor){
+        plugin.getCommand(name).setExecutor(executor);
+    }
+
     public void initializeCommands() {
-        plugin.getCommand("player").setExecutor(playerCommand);
-        plugin.getCommand("givetoplayer").setExecutor(giveToPlayerCommand);
+        registerCommand("player", playerCommand);
+        registerCommand("givetoplayer", giveToPlayerCommand);
     }
 }

@@ -17,12 +17,12 @@ public class PlayerCommand implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        if (sender instanceof Player) {
-            Player player = (Player) sender;
-            String info = playerService.getPlayerInfo(player);
-            player.sendMessage(info);
-            return true;
+        if (!(sender instanceof Player)) {
+            return false;
         }
-        return false;
+        Player player = (Player) sender;
+        String info = playerService.getPlayerInfo(player);
+        player.sendMessage(info);
+        return true;
     }
 }

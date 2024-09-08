@@ -17,11 +17,22 @@ public class GiveToPlayerCommand implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        if (sender instanceof Player) {
-            Player player = (Player) sender;
-            playerService.givePlayerMoney(player, 100);
-            return true;
+        if (!(sender instanceof Player)) {
+            return false;
         }
+        Player player = (Player) sender;
+
+        if (args.length == 1) {
+            try {
+                int amount = Integer.parseInt(args[0]);
+                playerService.givePlayerMoney(player, amount);
+                return true;
+            } catch (NumberFormatException e) {
+                return false;
+            }
+        }
+
+        player.sendMessage("Usage: /givetoplayer <amount>"); // or use the usage bukkit-api method but i prefer creating my own helper messages
         return false;
     }
 }
